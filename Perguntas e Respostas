@@ -1,0 +1,190 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+
+int main() {
+    setlocale(LC_ALL, "portuguese");
+    
+    printf("\n  =====================================\n");
+	printf("          PERGUNTAS E RESPOSTAS        \n");
+	printf("  =====================================\n\n");
+
+
+    printf("\n\t  ===== REGRAS =====");
+    printf("\n\n\  Nesse jogo terão 5 questões de raciocínio lógico e 4 opções de múltipla escolha para responder, cada resposta correta você ganha 1 ponto.\n\n");
+    printf ("  *** Aperte ENTER para iniciar ***\n");
+    getchar();
+    system("cls"); 
+
+    int pontos, x;
+
+	// loop que vai reiniciar o jogo se selecionado no final do jogo
+    while (1) { 
+        pontos = 0;
+
+        // Primeira pergunta
+        // cada pergunta tem um do-while para caso o usuario selecione uma opção inválida a pergunta irá se repetir
+        do {
+            printf("\n 1) Ana é irmã de Bruna, Bruna é irmã de Carla, Carla é mãe de Diana. O que Diana é de Ana?\n");
+            printf("\n 1 - Prima\n 2 - Neta\n 3 - Irmã\n 4 - Sobrinha\n");
+            printf("\n Resposta: ");
+            scanf("%d", &x);
+
+            switch (x) {
+                case 1:
+					printf("\n Poooxa :( A resposta correta era 4 - Sobrinha \n");
+                    break; 
+				case 2:
+					printf("\n Poooxa :( A resposta correta era 4 - Sobrinha \n");
+                    break; 
+				case 3:
+                    printf("\n Poooxa :( A resposta correta era 4 - Sobrinha \n");
+                    break;
+                case 4:
+                    printf("\n Parabéns!!! Resposta correta\n");
+                    pontos++; // adicionei um sistema de pontos para o usuario poder ver quantas perguntas acertou no final do jogo
+                    break;
+                default:
+                    printf("\n Opção Inválida. Tente novamente.\n");
+            }
+        } while (x < 1 || x >= 5);  
+
+        // Segunda pergunta
+        do {
+            printf("\n 2) Se Ana é bondosa, Cris é dedicada e Bia é calma, então Lisa é...n");
+            printf("\n 1 - Legal\n 2 - Genial\n 3 - Amável\n 4 - Mimosa\n");
+            printf("\n Resposta: ");
+            scanf("%d", &x);
+
+            switch (x) {
+                case 1:
+					printf("\n Poooxa :( A resposta correta era 4 - Mimosa \n");
+                    break; 
+				case 2: 
+					printf("\n Poooxa :( A resposta correta era 4 - Mimosa \n");
+                    break;
+				case 3:
+                    printf("\n Poooxa :( A resposta correta era 4 - Mimosa \n");
+                    break;
+                case 4:
+                    printf("\n Parabéns!!! Resposta correta\n");
+                    pontos++;
+                    break;
+                default:
+                    printf("\n Opção Inválida. Tente novamente.\n");
+            }
+        } while (x < 1 || x > 4);
+
+        // Terceira pergunta
+        do {
+            printf("\n 3) Um elevador leva 12 seg para subir no quarto andar. Quanto tempo leva para subir no sétimo andar?\n");
+            printf("\n 1 - 16\n 2 - 18\n 3 - 24\n 4 - 28\n");
+            printf("\n Resposta: ");
+            scanf("%d", &x);
+
+            switch (x) {
+                case 1: 
+                	printf("\n Poooxa :( A resposta correta era 3 - 24 \n");
+                    break;
+				case 2: 
+					printf("\n Poooxa :( A resposta correta era 3 - 24 \n");
+                    break;
+                case 3:
+                    printf("\n Parabéns!!! Resposta correta\n");
+                    pontos++;
+                    break;
+				case 4:
+                    printf("\n Poooxa :( A resposta correta era 3 - 24 \n");
+                    break;
+                default:
+                    printf("\n Opção Inválida. Tente novamente.\n");
+            }
+        } while (x < 1 || x > 4);
+
+        // Quarta pergunta
+        do {
+            printf("\n 4) Quatro suspeitos de praticar um crime fazem as seguintes declarações: \n");
+            printf(" João: Carlos é o criminoso\n");
+            printf(" Pedro: eu não sou criminoso\n");
+            printf(" Carlos: Paulo é o criminoso\n");
+            printf(" Paulo: Carlos está mentindo\n");
+            printf(" Sabendo que apenas um dos suspeitos mente, determine quem é o criminoso.\n");
+            printf("\n 1 - Carlos\n 2 - Pedro\n 3 - João\n 4 - Paulo\n");
+            printf("\n Resposta: ");
+            scanf("%d", &x);
+
+            switch (x) {
+                case 1:
+                    printf("\n Parabéns!!! Resposta correta\n");
+                    pontos++;
+                    break;
+				case 2:
+					printf("\n Poooxa :( A resposta correta era 1 - Carlos \n");
+                    break; 
+				case 3: 
+					printf("\n Poooxa :( A resposta correta era 1 - Carlos \n");
+                    break;
+				case 4:
+                    printf("\n Poooxa :( A resposta correta era 1 - Carlos \n");
+                    break;
+                default:
+                    printf("\n Opção Inválida. Tente novamente.\n");
+            }
+        } while (x < 1 || x > 4);
+
+        // Quinta pergunta
+        do {
+            printf("\n 5) Thelma comprou 36 coxinhas para comer com suas três filhas, que horas são? \n");
+            printf("\n 1 - 02:24\n 2 - 03:24\n 3 - 14:24\n 4 - 15:24\n");
+            printf("\n Resposta: ");
+            scanf("%d", &x);
+
+            switch (x) {
+                case 1:
+					printf("\n Poooxa :( A resposta correta era 2 - 03:24 \n");
+                    break; 
+                case 2:
+                    printf("\n Parabéns!!! Resposta correta\n");
+                    pontos++;
+                    break;
+				case 3:
+					printf("\n Poooxa :( A resposta correta era 2 - 03:24 \n");
+                    break; 
+				case 4:
+                    printf("\n Poooxa :( A resposta correta era 2 - 03:24 \n");
+                    break;
+                default:
+                    printf("\n Opção Inválida. Tente novamente.\n");
+            }
+        } while (x < 1 || x > 4);
+        
+        // acho que vou trocar essas perguntas
+
+        // Finalização do jogo
+         printf("\n\n  +-----------------------------------------------+\n");
+		printf("  |      Jogo finalizado! Você fez %d/5 pontos     |\n", pontos);
+		printf("  +-----------------------------------------------+\n");
+
+        // Opção para jogar novamente ou sair
+        do {
+            printf("\n  Você deseja...\n");
+            printf("  (1) Jogar Novamente\n");
+            printf("  (2) Sair\n");
+            printf("\n  Escolha uma opção: ");
+            scanf("%d", &x);
+
+            switch (x) {
+                case 1:
+                    system("cls"); 
+                    break;
+                case 2:
+                    printf("\n  Obrigado por jogar! Até a próxima.\n");
+                    return 0; 
+                default:
+                    printf("  Opção Inválida. Tente novamente.\n");
+            }
+        } while (x < 1 || x > 2);
+    }
+
+    return 0;
+}
