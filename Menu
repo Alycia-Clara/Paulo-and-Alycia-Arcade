@@ -1,0 +1,70 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+
+void quiz();
+void cobra();
+void gousma();
+void menu();
+
+int main() {
+    setlocale(LC_ALL, "portuguese");
+    menu(); 
+    return 0;
+}
+
+void menu() {
+    int escolha;
+
+    while (1) { 
+        printf("\n  ╔════════════════════════════════════╗\n");
+		printf("  ║      PAULO AND ALYCIA'S ARCADE     ║\n");
+		printf("  ║------------------------------------║\n");
+		printf("  ║ 1) Perguntas e Respostas           ║\n");
+		printf("  ║ 2) Cobra na Caixa                  ║\n");
+		printf("  ║ 3) Gousma's War                    ║\n");
+		printf("  ║ 4) Sair                            ║\n");
+	   	printf("  ╚════════════════════════════════════╝\n");
+        printf("\n Escolha o que quer jogar: \n");
+        scanf(" %d", &escolha);
+
+        system("cls");  
+
+        switch (escolha) {
+            case 1:
+                quiz();  
+                break;
+            
+            case 2:
+                cobra();  
+                break;
+            
+            case 3:
+                gousma();  
+                break;
+            
+            case 4:
+                printf(" Até a próxima!!!\n");
+                exit(0);  
+                break;
+            
+            default:
+                printf(" Opção inválida\n");
+        }
+    }
+}
+
+void quiz() {
+    printf("Regras do jogo Perguntas e Respostas\n");
+    // código para o jogo "Perguntas e Respostas"
+}
+
+void cobra() {
+    printf("Regras do jogo Cobra na Caixa\n");
+    // código para o jogo "Cobra na Caixa"
+}
+
+void gousma() {
+    printf("Regras do jogo Gousma's War\n");
+    // código para o jogo "Gousma's War"
+}
