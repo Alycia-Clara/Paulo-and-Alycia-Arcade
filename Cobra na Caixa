@@ -1,0 +1,68 @@
+#include <stdio.h>
+#include <time.h>
+#include <locale.h>
+#include <stdlib.h>
+
+int main () {
+	setlocale(LC_ALL, "portuguese");
+        srand(time(NULL));
+        
+        printf("\n\t\t  ====================================\n");
+        printf("\t\t            COBRA NA CAIXA");
+        printf("\n\t\t  ====================================\n");
+        printf("\n  Você e seu parceiro são exploradores e estão presos em uma tumba egípcia!");
+        printf("\n  No centro da sala, há cinco caixas: uma delas tem o botão que abre a porta,");
+        printf("\n  mas outra esconde uma cobra mortal. A cada rodada, suas posições mudam aleatoriamente.");
+        printf("\n\n  °°°°° Como jogar °°°°°");
+        printf("\n  Escolha uma caixa para abrir.");
+        printf("\n  Se encontrar o botão, a porta se abre e você vence.");
+        printf("\n  Se encontrar a cobra, é fim de jogo.\n\n");
+        printf ("  *** Pressione a tecla ENTER para continuar *** \n");
+        getchar();
+        system("cls");  
+
+
+    char nomes[7][20] = {"Alessandra", "Eliane", "Erick", "Luiz", "Pedro", "Polyana", "Sam"};
+    int escolha1, escolha2;
+    
+    printf("\n  Escolha o nome do(a) primeiro(a) explorador(a): ");
+    printf("\n  1 - Alessandra\n  2 - Eliane\n  3 - Erick\n  4 - Luiz\n  5 - Pedro\n  6 - Polyana\n  7 - Sam\n");
+    printf("\n  Digite o número correspondente: ");
+    scanf("%d", &escolha1);
+    
+    printf("\n  Escolha o nome do(a) segundo(a) explorador(a): ");
+    printf("\n  1 - Alessandra\n  2 - Eliane\n  3 - Erick\n  4 - Luiz\n  5 - Pedro\n  6 - Polyana\n  7 - Sam\n");
+    printf("\n  Digite o número correspondente: ");
+    scanf("%d", &escolha2);
+    
+    escolha1 -= 1;
+    escolha2 -= 1;
+
+    int jogador_atual = 0;
+    int jogadores[2] = {escolha1, escolha2};
+
+    while (1) {
+        int caixa_escolhida;
+        
+        printf("\n  É a vez de %s!", nomes[jogadores[jogador_atual]]);
+        printf("\n  Escolha uma caixa (digite um número de 1 a 5): ");
+        scanf("%d", &caixa_escolhida);
+
+        int botao = rand() % 5 + 1;
+        int cobra = rand() % 5 + 1;
+
+        if (caixa_escolhida == botao) {
+            printf("\n  Parabéns, %s encontrou o botão e a porta se abriu!\n", nomes[jogadores[jogador_atual]]);
+            break;
+        } else if (caixa_escolhida == cobra) {
+            printf("\n  Que pena, %s encontrou a cobra e perdeu o jogo!\n", nomes[jogadores[jogador_atual]]);
+            break;
+        } else {
+               jogador_atual = (jogador_atual + 1) % 2; 
+            printf("\n  Caixa vazia\n");
+        }
+
+    }
+    
+    return 0;
+}
