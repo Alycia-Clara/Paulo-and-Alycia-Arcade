@@ -19,7 +19,7 @@ Este é um projeto avaliativo para os alunos de Engenharia de Computaçõa no CE
 
 # 🎮 Explicação dos Jogos  
 
-# 🧠 Perguntas e Respostas (Quiz)  
+## 🧠 Perguntas e Respostas (Quiz)  
 
 Um jogo de raciocínio lógico com perguntas de múltipla escolha. O jogador deve responder corretamente para acumular pontos. Ao final das cinco perguntas, a pontuação é exibida, e o jogador pode optar por tentar novamente ou voltar ao menu principal.  
 
@@ -36,7 +36,7 @@ Um jogo de raciocínio lógico com perguntas de múltipla escolha. O jogador dev
 ![image](https://github.com/user-attachments/assets/c3c34aa0-5a2d-4ca9-bd17-11b3644b8a4a)
 
 
-# 🐍 Cobra na Caixa  
+## 🐍 Cobra na Caixa  
 
 Um jogo de sorte onde dois exploradores (ou um explorador contra o computador) tentam encontrar o botão escondido ou uma cobra dentro de uma das cinco caixas na tumba egipcia.  
 
