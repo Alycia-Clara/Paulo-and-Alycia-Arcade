@@ -65,7 +65,7 @@ Um jogo de sorte onde dois exploradores (ou um explorador contra o computador) t
 
 - Linguagem C  
 - Biblioteca padrão do C (`stdio.h`, `stdlib.h`, `locale.h`, `time.h`)
-- Laços de repetição ('do-while', 'while', 'if-else')
+- Laços de repetição (`do-while`, `while`, `if-else`)
 - Switch-case
 - Funções
 - Variáveis e Tipos de Dados (int, char, float, etc.)
