@@ -36,8 +36,6 @@ Um jogo de raciocínio lógico com perguntas de múltipla escolha. O jogador dev
 ![image](https://github.com/user-attachments/assets/c3c34aa0-5a2d-4ca9-bd17-11b3644b8a4a)
 
 
-
-
 # 🐍 Cobra na Caixa  
 
 Um jogo de sorte onde dois exploradores (ou um explorador contra o computador) tentam encontrar o botão escondido ou uma cobra dentro de uma das cinco caixas na tumba egipcia.  
@@ -60,7 +58,7 @@ Um jogo de sorte onde dois exploradores (ou um explorador contra o computador) t
 - O jogo alterna entre os jogadores a cada tentativa.  
 
 
-# ⚔️ Gousma’s War (Em Desenvolvimento)  
+## ⚔️ Gousma’s War (Em Desenvolvimento)  
 
 
 # 🛠️ Tecnologias Utilizadas  
