@@ -63,7 +63,7 @@ void quiz() {
 
 
     printf("\n  ===== REGRAS =====");
-    printf("\n\n\  Nesse jogo terão 5 questões de raciocínio lógico e 4 opções de múltipla escolha para responder, cada resposta correta você ganha 1 ponto.\n\n");
+    printf("\n\n  Nesse jogo terão 5 questões de raciocínio lógico e 4 opções de múltipla escolha para responder, cada resposta correta você ganha 1 ponto.\n\n");
     printf ("  *** Aperte ENTER para iniciar ***\n");
     getchar();
     getchar();
@@ -255,16 +255,16 @@ void cobra() {
     getchar();
     system("cls");  
 
-    char nomes[7][20] = {"Alessandra", "Eliane", "Erick", "Luiz", "Pedro", "Polyana", "Sam"};
+    char nomes[7][20] = {"Alessandra", "Eliane", "Erick", "Luiz", "Pedro", "Polyana", "Computador"};
     int escolha1, escolha2;
     
     printf("\n  Escolha o nome do(a) primeiro(a) explorador(a): ");
-    printf("\n  1 - Alessandra\n  2 - Eliane\n  3 - Erick\n  4 - Luiz\n  5 - Pedro\n  6 - Polyana\n  7 - Sam\n");
+    printf("\n  1 - Alessandra\n  2 - Eliane\n  3 - Erick\n  4 - Luiz\n  5 - Pedro\n  6 - Polyana\n  7 - Computador\n");
     printf("\n  Digite o número correspondente: ");
     scanf("%d", &escolha1);
     
     printf("\n  Escolha o nome do(a) segundo(a) explorador(a): ");
-    printf("\n  1 - Alessandra\n  2 - Eliane\n  3 - Erick\n  4 - Luiz\n  5 - Pedro\n  6 - Polyana\n  7 - Sam\n");
+    printf("\n  1 - Alessandra\n  2 - Eliane\n  3 - Erick\n  4 - Luiz\n  5 - Pedro\n  6 - Polyana\n  7 - Computador\n");
     printf("\n  Digite o número correspondente: ");
     scanf("%d", &escolha2);
     
@@ -298,7 +298,7 @@ void cobra() {
 
     int x;
 
-    // fim
+    // fim do jogo
     do {
         printf("\n Você deseja...\n");
         printf(" (1) Jogar Novamente\n");
@@ -314,7 +314,7 @@ void cobra() {
             printf(" Opção Inválida\n");
             continue; 
         }
-    } while (x < 1 || x > 2); 
+    } while (x != 2); 
 }
 
 
