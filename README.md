@@ -8,15 +8,6 @@ Este é um projeto avaliativo para os alunos de Engenharia de Computaçõa no CE
 - Cobra na Caixa
 - Gousma's War
 
-
-# 📌 Funcionalidades  
-
-✅ Menu interativo para escolher os jogos  
-✅ Perguntas de múltipla escolha com pontuação no Quiz  
-✅ Jogo de sorte e estratégia na Cobra na Caixa  
-✅ Opção para reiniciar cada jogo ou voltar ao menu principal  
-
-
 # 🎮 Explicação dos Jogos  
 
 ## 🧠 Perguntas e Respostas (Quiz)  
