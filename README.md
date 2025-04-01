@@ -55,7 +55,7 @@ Um jogo de sorte onde dois exploradores (ou um explorador contra o computador) t
 # 🛠️ Tecnologias Utilizadas  
 
 - Linguagem C  
-- Biblioteca padrão do C (`stdio.h`, `stdlib.h`, `locale.h`, `time.h`)
+- Biblioteca padrão do C (`stdio.h`, `stdlib.h`, `locale.h`, `time.h`, 'stdbool.h')
 - Laços de repetição (`do-while`, `while`, `if-else`)
 - Switch-case
 - Funções
