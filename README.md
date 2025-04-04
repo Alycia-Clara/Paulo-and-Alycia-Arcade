@@ -51,7 +51,19 @@ Um jogo de sorte onde dois exploradores (ou um explorador contra o computador) t
 
 ## ⚔️ Gousma’s War 
 um jogo de estrategia onde voce controla criaturas chamadas gousmas, que podem se dividir e acumular furias ao serem atacadas
-![image] 
+
+![Image](https://github.com/user-attachments/assets/96e07772-cc26-4926-8a63-374955faf6f0)
+
+- Cada jogador inicia com duas Gousmas, cada uma com nível de fúria 1
+- Quando uma Gousma ataca outra, transfere todo o seu nível de fúria
+para a Gousma atacada
+- Se uma Gousma atingir um nível de fúria maior que 5, ela se desintegra
+- O jogador pode optar por dividir uma Gousma, transferindo uma parte da
+fúria para uma nova Gousma (respeitando o limite de duas Gousmas por
+jogador)
+- Se o jogador perder todas as gousmas será derrotado
+
+ ![Image](https://github.com/user-attachments/assets/17d49b35-09e2-490d-8423-89ad8954773a)
 
 
 # 🛠️ Tecnologias Utilizadas  
