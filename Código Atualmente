@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <locale.h>
 #include <time.h>
+#include <stdbool.h>
 
 void quiz();
 void cobra();
@@ -218,7 +219,7 @@ void quiz() {
 		printf("  |      Jogo finalizado! Você fez %d/5 pontos     |\n", pontos);
 		printf("  +-----------------------------------------------+\n");
 
-        // Opção para jogar novamente ou sair
+        
         do {
         printf (" Você deseja...\n");
         printf(" (1) Jogar Novamente\n");
@@ -298,7 +299,7 @@ void cobra() {
 
     int x;
 
-    // fim do jogo
+    
     do {
         printf("\n Você deseja...\n");
         printf(" (1) Jogar Novamente\n");
@@ -318,8 +319,191 @@ void cobra() {
 }
 
 
+#define MAX_GOUSMAS 2
+#define MAX_FURIA 5
+
+typedef struct {
+    int furia;
+} Gousma;
+
+typedef struct {
+    Gousma gousmas[MAX_GOUSMAS];
+    int num_gousmas;
+} Jogador;
+
+
+static void inicializarJogador(Jogador *jogador) {
+    jogador->num_gousmas = 2;
+    for (int i = 0; i < jogador->num_gousmas; i++) {
+        jogador->gousmas[i].furia = 1;
+    }
+}
+
+static void mostrarStatus(Jogador *jogador1, Jogador *jogador2) {
+    printf("\n--- Status dos Jogadores ---\n");
+    printf("Jogador 1 - Gousmas: ");
+    for (int i = 0; i < jogador1->num_gousmas; i++) {
+        printf("[%d] ", jogador1->gousmas[i].furia);
+    }
+    printf("\nJogador 2 - Gousmas: ");
+    for (int i = 0; i < jogador2->num_gousmas; i++) {
+        printf("[%d] ", jogador2->gousmas[i].furia);
+    }
+    printf("\n");
+}
+
+static bool verificarDerrota(Jogador *jogador) {
+    return jogador->num_gousmas == 0;
+}
+
+static void atacar(Jogador *atacante, Jogador *defensor, int gousma_atacante, int gousma_defensor) {
+    if (gousma_atacante < 0 || gousma_atacante >= atacante->num_gousmas ||
+        gousma_defensor < 0 || gousma_defensor >= defensor->num_gousmas) {
+        printf("Índice de Gousma inválido!\n");
+        return;
+    }
+    
+    defensor->gousmas[gousma_defensor].furia += atacante->gousmas[gousma_atacante].furia;
+    atacante->gousmas[gousma_atacante].furia = 0;
+    
+    printf("\nGousma %d do Jogador atacou Gousma %d do Jogador adversário!\n", 
+           gousma_atacante + 1, gousma_defensor + 1);
+    
+    if (defensor->gousmas[gousma_defensor].furia > MAX_FURIA) {
+        printf("Gousma %d do Jogador adversário desintegrou!\n", gousma_defensor + 1);
+        for (int i = gousma_defensor; i < defensor->num_gousmas - 1; i++) {
+            defensor->gousmas[i] = defensor->gousmas[i + 1];
+        }
+        defensor->num_gousmas--;
+    }
+    
+    for (int i = gousma_atacante; i < atacante->num_gousmas - 1; i++) {
+        atacante->gousmas[i] = atacante->gousmas[i + 1];
+    }
+    atacante->num_gousmas--;
+}
+
+static void dividirGousma(Jogador *jogador, int gousma_idx, int furia_nova) {
+    if (jogador->num_gousmas >= MAX_GOUSMAS) {
+        printf("\nVocê já tem o número máximo de Gousmas!\n");
+        return;
+    }
+    
+    if (gousma_idx < 0 || gousma_idx >= jogador->num_gousmas) {
+        printf("\nÍndice de Gousma inválido!\n");
+        return;
+    }
+    
+    if (furia_nova <= 0 || furia_nova >= jogador->gousmas[gousma_idx].furia) {
+        printf("\nValor de fúria inválido para divisão!\n");
+        return;
+    }
+    
+    jogador->gousmas[jogador->num_gousmas].furia = furia_nova;
+    jogador->num_gousmas++;
+    jogador->gousmas[gousma_idx].furia -= furia_nova;
+    printf("\nGousma dividida com sucesso!\n");
+}
+
 
 void gousma() {
-    printf("Regras do jogo Gousma's War\n");
-    // código para o jogo "Gousma's War"
+    printf("\n\t\t  ====================================\n");
+    printf("\t\t            GOUSMA'S WAR");
+    printf("\n\t\t  ====================================\n");
+    printf("\n  Neste jogo de estratégia, os jogadores controlam criaturas chamadas Gousmas,\n");
+    printf("  que podem se dividir e acumular fúria ao serem atacadas.\n\n");
+    printf("  REGRAS:\n");
+    printf("  - Cada jogador começa com 2 Gousmas (nível 1 de fúria cada)\n");
+    printf("  - Ao atacar, toda a fúria é transferida para a Gousma atacada\n");
+    printf("  - Se uma Gousma atingir fúria > 5, ela se desintegra\n");
+    printf("  - Você pode dividir uma Gousma, transferindo parte da fúria para uma nova\n");
+    printf("  - O jogador que perder todas as Gousmas perde o jogo\n\n");
+    printf("  *** Pressione ENTER para começar ***\n");
+    getchar();
+    getchar();
+    system("cls");
+
+    Jogador jogador1, jogador2;
+    inicializarJogador(&jogador1);
+    inicializarJogador(&jogador2);
+    
+    int turno = 1;
+    Jogador *atual, *adversario;
+    
+    while (1) {
+        system("cls");
+        printf("\n\t\t  ====================================\n");
+        printf("\t\t            GOUSMA'S WAR - TURNO %d", turno);
+        printf("\n\t\t  ====================================\n");
+        
+        atual = (turno == 1) ? &jogador1 : &jogador2;
+        adversario = (turno == 1) ? &jogador2 : &jogador1;
+        
+        mostrarStatus(&jogador1, &jogador2);
+        
+        if (verificarDerrota(atual)) {
+            printf("\nJogador %d perdeu todas as Gousmas!\n", turno);
+            printf("Jogador %d venceu!\n", (turno == 1) ? 2 : 1);
+            break;
+        }
+        
+        printf("\nTurno do Jogador %d\n", turno);
+        printf("1. Atacar\n");
+        printf("2. Dividir Gousma\n");
+        printf("Escolha sua ação: ");
+        
+        int acao;
+        scanf("%d", &acao);
+        
+        if (acao == 1) {
+            printf("Escolha sua Gousma para atacar (1-%d): ", atual->num_gousmas);
+            int gousma_atacante;
+            scanf("%d", &gousma_atacante);
+            
+            printf("Escolha a Gousma adversária para atacar (1-%d): ", adversario->num_gousmas);
+            int gousma_defensor;
+            scanf("%d", &gousma_defensor);
+            
+            atacar(atual, adversario, gousma_atacante - 1, gousma_defensor - 1);
+        } else if (acao == 2) {
+            printf("Escolha a Gousma para dividir (1-%d): ", atual->num_gousmas);
+            int gousma_idx;
+            scanf("%d", &gousma_idx);
+            
+            printf("Quanta fúria transferir para a nova Gousma? (1-%d): ", 
+                   atual->gousmas[gousma_idx - 1].furia - 1);
+            int furia_nova;
+            scanf("%d", &furia_nova);
+            
+            dividirGousma(atual, gousma_idx - 1, furia_nova);
+        } else {
+            printf("Ação inválida!\n");
+            continue;
+        }
+        
+        printf("\nPressione ENTER para continuar...");
+        getchar();
+        getchar();
+        
+        turno = (turno == 1) ? 2 : 1;
+    }
+    
+    int opcao;
+    do {
+        printf("\nDeseja jogar novamente?\n");
+        printf("1. Jogar novamente\n");
+        printf("2. Voltar ao menu principal\n");
+        printf("Escolha: ");
+        scanf("%d", &opcao);
+        
+        if (opcao == 1) {
+            gousma();
+            return;
+        } else if (opcao == 2) {
+            system("cls");
+            return;
+        } else {
+            printf("Opção inválida!\n");
+        }
+    } while (opcao != 1 && opcao != 2);
 }
