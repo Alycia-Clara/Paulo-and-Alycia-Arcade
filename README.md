@@ -49,7 +49,9 @@ Um jogo de sorte onde dois exploradores (ou um explorador contra o computador) t
 - O jogo alterna entre os jogadores a cada tentativa.  
 
 
-## ⚔️ Gousma’s War (Em Desenvolvimento)  
+## ⚔️ Gousma’s War 
+um jogo de estrategia onde voce controla criaturas chamadas gousmas, que podem se dividir e acumular furias ao serem atacadas
+![image] 
 
 
 # 🛠️ Tecnologias Utilizadas  
